@@ -3,6 +3,7 @@
 
 void MainMenuBar::showExitDialog()
 {
+    //TODO. Add Localization
     ImGui::OpenPopup("Exit Confirmation");
     if (ImGui::BeginPopupModal("Exit Confirmation", NULL, ImGuiWindowFlags_AlwaysAutoResize))
     {
@@ -24,6 +25,47 @@ void MainMenuBar::showExitDialog()
     }
 }
 
+void MainMenuBar::showSettingsWindow()
+{
+    //TODO. Add Localization
+    ImGui::Begin("Settings window", &_showSettingsWindow);
+    ImGui::Text("Settings go here.");
+    ImGui::End();
+}
+
+void MainMenuBar::showAboutDialog()
+{
+
+    //TODO. Add Localization
+    ImGui::OpenPopup("About program");
+    if (ImGui::BeginPopupModal("About program", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Made by DMK Team");
+        ImGui::Separator();
+        if (ImGui::Button("Close", ImVec2(120, 0)))
+        {
+            this->_showAboutDialog = false;
+            ImGui::CloseCurrentPopup();
+        }
+
+        ImGui::EndPopup();
+    }
+
+}
+
+void MainMenuBar::openDocummentation()
+{
+    const char* url = "http://example.com"; 
+
+    #if defined(_WIN32)
+        system((std::string("start ") + url).c_str());
+    #elif defined(__APPLE__)
+        system((std::string("open ") + url).c_str());
+    #elif defined(__linux__)
+        system((std::string("xdg-open ") + url).c_str());
+    #endif
+}
+
 void MainMenuBar::render()
 {
     //TODO. Add localization
@@ -35,12 +77,15 @@ void MainMenuBar::render()
     }
     if (ImGui::MenuItem("Settings"))
     {
+        this->_showSettingsWindow = true;
     }
     if (ImGui::MenuItem("About"))
     {
+        this->_showAboutDialog = true;
     }
     if (ImGui::MenuItem("Documentation"))
     {
+        this->openDocummentation();
     }
 
     ImGui::EndMainMenuBar();
@@ -48,5 +93,15 @@ void MainMenuBar::render()
     if (this->_showExitDialog)
     {
         this->showExitDialog();
+    }
+
+    if (this->_showSettingsWindow)
+    {
+        this->showSettingsWindow();
+    }
+
+    if (this->_showAboutDialog) 
+    {
+        this->showAboutDialog();
     }
 }
