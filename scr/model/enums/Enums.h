@@ -13,4 +13,14 @@ enum CultureId
     en_US
 };
 
+enum MeshType
+{
+    Triangle
+};
+
+enum ElementsOrder 
+{
+    Linear
+};
+
 #endif // ENUMS_H

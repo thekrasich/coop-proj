@@ -10,11 +10,11 @@ int main(int, char**)
     sf::RenderWindow window(sf::VideoMode(800, 800), "Project");
     ImGui::SFML::Init(window);
     
-    //Application variables
+    //Initialization
     MainMenuBar mainMenuBar;
-
-
     preWindowCreateInit();
+
+
 
     sf::Clock deltaClock;
     while (window.isOpen())
