@@ -12,10 +12,12 @@ private:
 
 public:
 	ApplicationSettings();
-	ApplicationSettings(ColorTheme colorTheme,
+	ApplicationSettings(
+		ColorTheme colorTheme,
 		CultureId cultureId,
 		unsigned short  int width,
-		unsigned short int heigth);
+		unsigned short int heigth
+	);
 
 	ColorTheme getColorTheme() const;
 	CultureId getCultureId() const;

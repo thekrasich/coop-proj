@@ -8,10 +8,12 @@ ApplicationSettings::ApplicationSettings()
 	this->_heigth = DEFAULT_WINDOW_HEIGTH;
 }
 
-ApplicationSettings::ApplicationSettings(ColorTheme colorTheme,
+ApplicationSettings::ApplicationSettings(
+	ColorTheme colorTheme,
 	CultureId cultureId,
 	unsigned short int width,
-	unsigned short int heigth)
+	unsigned short int heigth
+)
 {
 	this->_colorTheme = colorTheme;
 	this->_cultureId = cultureId;
