@@ -8,6 +8,7 @@ private:
 	double _apoptosisMesureCoefficient;
 	double _massTransferCoefficient; // TODO. Figure out is k; local total curvature??
 	double _chemotaxisCoefficient;
+
 public: 
 	VittorioKristiniMathModel();
 	VittorioKristiniMathModel(double diffusionCoefficientInLiveTissue,

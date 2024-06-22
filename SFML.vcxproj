@@ -156,6 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="scr\gui\components\mainmenubar\MainMenuBar.cpp" />
     <ClCompile Include="scr\model\constants\Constants.cpp" />
     <ClCompile Include="scr\model\settings\ApplicationSettings.cpp" />
     <ClCompile Include="imgui\imgui-SFML.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="scr\model\mathmodels\kristini\VittorioKristiniMathModel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="scr\gui\components\mainmenubar\MainMenuBar.h" />
     <ClInclude Include="scr\model\enums\Enums.h" />
     <ClInclude Include="scr\model\settings\ApplicationSettings.h" />
     <ClInclude Include="imgui\imconfig-SFML.h" />

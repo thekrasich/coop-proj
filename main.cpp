@@ -1,12 +1,20 @@
 #include "imgui.h"
 #include "imgui-SFML.h"
 #include "SFML/Graphics.hpp"
-    
+#include "scr/gui/components/mainmenubar/MainMenuBar.h"
+
+void preWindowCreateInit();
 
 int main(int, char**)
 {
     sf::RenderWindow window(sf::VideoMode(800, 800), "Project");
     ImGui::SFML::Init(window);
+    
+    //Application variables
+    MainMenuBar mainMenuBar;
+
+
+    preWindowCreateInit();
 
     sf::Clock deltaClock;
     while (window.isOpen())
@@ -21,14 +29,7 @@ int main(int, char**)
         ImGui::SFML::Update(window, deltaClock.restart());
 
         // MAIN MENU BAR
-        ImGui::BeginMainMenuBar();
-
-        ImGui::MenuItem("Exit");
-        ImGui::MenuItem("Settings");
-        ImGui::MenuItem("About");
-        ImGui::MenuItem("Docummentation");
-
-        ImGui::EndMainMenuBar();
+        mainMenuBar.render();
        
         window.clear(sf::Color(0, 33, 43));
         ImGui::SFML::Render(window);
@@ -37,4 +38,8 @@ int main(int, char**)
 
     ImGui::SFML::Shutdown();
     return 0;
+}
+
+void preWindowCreateInit()
+{
 }
