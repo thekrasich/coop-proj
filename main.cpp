@@ -1,11 +1,11 @@
 #include "imgui.h"
 #include "imgui-SFML.h"
-
 #include "SFML/Graphics.hpp"
+    
 
-int main()
+int main(int, char**)
 {
-    sf::RenderWindow window(sf::VideoMode(800, 800), "Window Title");
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Project");
     ImGui::SFML::Init(window);
 
     sf::Clock deltaClock;
@@ -20,12 +20,17 @@ int main()
         }
         ImGui::SFML::Update(window, deltaClock.restart());
 
-        ImGui::Begin("Window title");
-        ImGui::Text("Window text!");
-        ImGui::End();
-   
+        // MAIN MENU BAR
+        ImGui::BeginMainMenuBar();
 
-        window.clear(sf::Color(18, 33, 43));
+        ImGui::MenuItem("Exit");
+        ImGui::MenuItem("Settings");
+        ImGui::MenuItem("About");
+        ImGui::MenuItem("Docummentation");
+
+        ImGui::EndMainMenuBar();
+       
+        window.clear(sf::Color(0, 33, 43));
         ImGui::SFML::Render(window);
         window.display();
     }
