@@ -12,4 +12,4 @@ class ApplicationSettings(object):
         self.current_color_theme: str = (
             "blue"  # Themes: "blue" (standard), "green", "dark-blue"
         )
-        self.current_language: str = "English"
+        self.current_language: str = "uk"
